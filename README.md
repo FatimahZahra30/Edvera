@@ -1,11 +1,47 @@
-To run this code, you need to run both server and front end at the same time
+## Running the Application
 
-npm install if you have not
+The application consists of both a **frontend** and **backend**, so both servers must be running simultaneously.
 
-Then, open two terminals
+### 1. Install dependencies
 
-Navigate to frontend in one terminal, and backend in another
+If you have not already installed the project dependencies, run:
 
-npm run dev on both terminals
+```bash
+npm install
+```
 
-Navigate to the link generated in the frontend terminal (http://localhost:5173/)
+Run this separately inside both the `frontend` and `backend` directories if they each have their own `package.json`.
+
+### 2. Start the backend
+
+Open a terminal and navigate to the backend directory:
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+Keep this terminal running.
+
+### 3. Start the frontend
+
+Open a **second terminal** and navigate to the frontend directory:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Keep this terminal running as well.
+
+### 4. Open the application
+
+Once the frontend development server has started, open the URL shown in the terminal. By default, this will be:
+
+```text
+http://localhost:5173/
+```
+
+The frontend communicates with the backend while both development servers are running.
