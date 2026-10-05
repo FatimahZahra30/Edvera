@@ -1,0 +1,65 @@
+html, body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling on the main window */
+}
+.left-align { text-align:left; }
+
+/* ---------- Layout variables ---------- */
+.layout { --sidebar-w: 250px; --header-h: 80px; --content-pad-x: 1.25rem; --content-pad-y: 1rem; }
+.sidebar { position: fixed; top: 0; left: 0; width: var(--sidebar-w); height: 100vh; box-sizing: border-box; }
+.content { position: fixed; top: var(--header-h); left: var(--sidebar-w); right: 0; bottom: 0; overflow: auto; flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; }
+.content-pad { padding: var(--content-pad-y) calc(var(--content-pad-x) + 2rem); }
+.text-muted { color: #6c757d; }
+.card { padding: 0.5rem; }
+
+/* Overview card */
+.kv-grid { grid-template-columns: auto 1fr; gap: 0.5rem 1rem; }
+.kv-grid .label { white-space: nowrap; }
+.card:before { content: ''; background: linear-gradient(45deg, #00ffd5, #002bff, #00ffd5); position: absolute; top: -2px; left:-2px; background-size: 400%; z-index: -1; filter: blur(5px); width: calc(100% + 4px); height: calc(100% + 4px); animation: glowing 20s linear infinite; opacity: 0; transition: opacity .3s ease-in-out; border-radius: 10px; }
+.card:active { color: #000 }
+.card:active:after { background: transparent; }
+.card:hover:before { opacity: 1;}
+.card:after { z-index: -1; content: ''; position: absolute; width: 100%; height: 100%; background: #fff; left: 0; top: 0; border-radius: 10px;}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.active-link { background-color: #2E32A3 !important; }
+
+/* Profile pill */
+.profile { padding: 10px 12px; background-color: #fff; padding-right: 0; margin-right: -12px; border-radius: 30px 0 0 30px; margin-left: calc((100% - 250px) * 0.5); }
+.prof-icon { font-size: 32px; color: #6c757d; }
+.pill-info { font-weight: 400; padding: 6px 12px; line-height: 1.2; text-align: left; }
+
+/* Instructor Enrolling */
+.split-section { display: flex; flex-direction: row; justify-content: space-between; align-items: stretch; width: 100%; height: 100%; padding: 20px; }
+
+.left-half, .right-half { display: flex; flex-direction: column; flex: 1; padding: 15px; box-sizing: border-box; min-height: 0; overflow: hidden; }
+
+/* Optional: Add a divider between halves */
+.left-half { border-right: 3px solid #dee2e6; }
+
+/* Responsive: Stack vertically on small screens */
+@media (max-width: 768px) { .split-section { flex-direction: column; } .left-half { border-right: none; border-bottom: 3px solid #dee2e6; } }
+
+.scrollable-left, .scrollable-right { flex: 1; overflow-y: auto; overflow-x: hidden; padding-right: 0.5rem; }
+
+/* Hide scrollbar */
+.scrollable-left::-webkit-scrollbar,
+.scrollable-right::-webkit-scrollbar {
+  display: none;
+}
+
+.enrol-item-class { background:rgba(255, 255, 255, 0.5); padding: 5px; border-radius: 10px; min-height: 60px; margin-bottom: 1rem; }
+.enrol-item { background:rgba(255, 255, 255, 0.5); padding: 10px 16px; border-radius: 10px; }
+.enrol-item:hover { background: rgba(255, 255, 255, 0.95); }
+
+/* Lazy, want to bold headers in General Information for Details pages */
+.bold { font-weight: bold; color:#000; }
+
+/* Ensure icons on sidebar are same size */
+.nav-icon { width: 24px !important;
+  height: 24px !important;
+  flex-shrink: 0; }

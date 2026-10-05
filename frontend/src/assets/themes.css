@@ -1,0 +1,170 @@
+/* src/assets/themes.css */
+
+/* ========== DEFAULT / LIGHT THEME ========== */
+:root,
+:root[data-theme="light"] {
+  /* App background + text */
+  --bg: #e3ebff;              /* Page background */
+  --border: #8895a2;          /* Divider lines, borders */
+  --bs-body-bg: #ffffff;      /* Content background (cards, modals) */
+  --bs-body-color: #212529;   /* Default text color */
+
+  /* Bootstrap brand + states */
+  --bs-primary: #0d6efd;
+  --bs-primary-rgb: 13,110,253;
+  --bs-success: #198754;
+  --bs-success-rgb: 25,135,84;
+  --bs-warning: #ffc107;
+  --bs-warning-rgb: 255,193,7;
+  --bs-danger: #dc3545;
+  --bs-danger-rgb: 220,53,69;
+  --bs-info: #0dcaf0;
+  --bs-info-rgb: 13,202,240;
+  --bs-secondary: #6c757d;
+  --bs-secondary-rgb: 108,117,125;
+
+  /* Surfaces */
+  --bs-card-bg: #ffffff;
+  --bs-card-color: #212529;
+  --bs-card-border-color: #dee2e6;
+  --bs-card-footer-bg: #ffffff;
+
+  /* Sidebar colors */
+  --sidebar-bg: #0d6efd;
+  --sidebar-fg: #ffffff;
+
+  /* Gradient header banners */
+  --card-hero: linear-gradient(135deg, #e2e8f0, #c7d2fe);
+}
+
+/* ========== OCEAN THEME ========== */
+:root[data-theme="ocean"] {
+  --bg: #e0f2fe;              /* light sky blue */
+  --border: #0ea5e9;
+  --bs-body-bg: #f0f9ff;
+  --bs-body-color: #0c4a6e;
+  --bs-header-bar-bg: #cae9fd;
+
+  --bs-primary: #06b6d4; --bs-primary-rgb: 6,182,212;
+  --bs-success: #0ea5e9; --bs-success-rgb: 14,165,233;
+  --bs-warning: #fbbf24; --bs-warning-rgb: 251,191,36;
+  --bs-danger: #f43f5e; --bs-danger-rgb: 244,63,94;
+
+  --bs-card-bg: #ffffff;
+  --bs-card-color: #0c4a6e;
+  --bs-card-footer-bg: #f0f9ff;
+
+  --sidebar-bg: #0284c7;
+  --sidebar-fg: #f0f9ff;
+
+  --card-hero: linear-gradient(135deg, #e0f2fe, #bae6fd);
+}
+
+/* ========== FOREST THEME ========== */
+:root[data-theme="forest"] {
+  --bg: #f6fef9;              /* light mint green */
+  --border: #10b981;
+  --bs-body-bg: #f9fefb;
+  --bs-body-color: #064e3b;
+  --bs-header-bar-bg: #d9f5e2;
+
+  --bs-primary: #34d399; --bs-primary-rgb: 52,211,153;
+  --bs-success: #10b981; --bs-success-rgb: 16,185,129;
+  --bs-warning: #f59e0b; --bs-warning-rgb: 245,158,11;
+  --bs-danger: #dc2626; --bs-danger-rgb: 220,38,38;
+
+  --bs-card-bg: #ffffff;
+  --bs-card-color: #064e3b;
+  --bs-card-footer-bg: #f9fefb;
+
+  --sidebar-bg: #10b981;
+  --sidebar-fg: #f0fdf4;
+
+  --card-hero: linear-gradient(135deg, #ecfdf5, #d1fae5);
+}
+
+/* ========== GRAPE THEME ========== */
+:root[data-theme="grape"] {
+  --bg: #f5f3ff;              /* soft violet */
+  --border: #7c3aed;
+  --bs-body-bg: #faf5ff;
+  --bs-body-color: #312e81;
+  --bs-header-bar-bg: #e0d8ff;
+
+  --bs-primary: #8b5cf6; --bs-primary-rgb: 139,92,246;
+  --bs-success: #7c3aed; --bs-success-rgb: 124,58,237;
+  --bs-warning: #fbbf24; --bs-warning-rgb: 251,191,36;
+  --bs-danger: #f43f5e; --bs-danger-rgb: 244,63,94;
+
+  --bs-card-bg: #ffffff;
+  --bs-card-color: #312e81;
+  --bs-card-footer-bg: #faf5ff;
+
+  --sidebar-bg: #7c3aed;
+  --sidebar-fg: #ffffff;
+
+  --card-hero: linear-gradient(135deg, #f5f3ff, #ede9fe);
+}
+
+/* ========== Apply variables globally ========== */
+
+/* Page background + text */
+body {
+  background-color: var(--bg);
+  color: var(--bs-body-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Page layout wrapper */
+.layout {
+  background: var(--bg);
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--sidebar-bg);
+  color: var(--sidebar-fg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header line and dividers */
+.header-line {
+  background-color: var(--border);
+  transition: background-color 0.3s ease;
+}
+
+/* Cards */
+.card {
+  background: var(--bs-card-bg);
+  color: var(--bs-card-color);
+  border-color: var(--bs-card-border-color) !important;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Links + Buttons */
+a {
+  color: var(--bs-link-color, var(--bs-primary));
+}
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+}
+
+/* Gradient hero areas (optional banners / headers) */
+.card-hero {
+  background: var(--card-hero);
+}
+
+/* Make sure the page background follows the theme, even if something else tries to override it */
+html, body, #app {
+  background: var(--bg) !important;
+  color: var(--bs-body-color);
+}
+
+.card-footer {
+  background-color: var(--bs-card-footer-bg);
+}
+
+.header-bar {
+  background-color: var(--bs-header-bar-bg);
+}
